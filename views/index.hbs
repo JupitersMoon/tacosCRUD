@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Taco CRUD</title>
-  </head>
-  <body>
-    
+</head>
 
+<body>
+    <h1>TACO TABLE</h1>
+    <form action="/tacos" method="GET">
+        <label>Enter and ID: <input type="text" name="idToGet"></label>
+        <input type="submit">
+    </form>
+    {{#each tacos}}
+        <div class="taContainer">
+            <h3>{{this.name}}</h4>
+        <img height="200px" width="200px" src="{{this.picture}}">
+        <p>{{this.description}}</p>
+      </div>
+    {{/each}}
+
+     <form action="/tacos" method="post">
+       <label>Taco Name: <input type="text" name="name"></label><br>
+       <label>Taco Picture URL: <input type="text" name="picture"></label><br>
+       <label>Taco Description: <input type="text" name="description"></label><br>
+       <input type="submit">
+     </form>
   </body>
 </html>

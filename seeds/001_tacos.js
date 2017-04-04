@@ -24,6 +24,6 @@ exports.seed = function(knex, Promise) {
       ]);
     })
     .then(() => {
-      knex.raw("SELECT setval('tacos_id_seq', (SELECT MAX(id) FROM tacos))")
+      return knex.raw("SELECT setval('tacos_id_seq', (SELECT MAX(id) FROM tacos));")
     })
 };
