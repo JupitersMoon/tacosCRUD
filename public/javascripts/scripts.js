@@ -28,12 +28,27 @@ $().ready(() => {
   })
 
   $('.uBox').click(() => {
-    if(event.target === $('.uSub')[0]){
+    if (event.target === $('.uSub')[0]) {
       let id = $(event.target).attr('data-id');
       let name = $(`.name${id}`).val();
       let picture = $(`.picture${id}`).val();
       let description = $(`.description${id}`).val();
-      console.log(id, name, picture, description);
+      $.ajax({
+        method: 'PUT',
+        url: '/tacos',
+        data: {
+          id: id,
+          name: name,
+          picture: picture,
+          description: description
+        },
+        success: (data) => {
+          if (data) {
+            location.reload();
+          }
+        },
+        error: () => {}
+      })
     }
   })
 })
