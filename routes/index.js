@@ -37,6 +37,7 @@ router.post('/', (req, res, next) => {
     })
 })
 
+
 router.delete('/', (req, res, next) => {
   let id = req.body.id;
   knex('tacos')
@@ -44,7 +45,7 @@ router.delete('/', (req, res, next) => {
     .first()
     .del()
     .then(() => {
-      res.render('index');
+      res.status(200).send(true);
     })
 })
 
