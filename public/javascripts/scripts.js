@@ -30,9 +30,10 @@ $().ready(() => {
   $('.uBox').click(() => {
     if(event.target === $('.uSub')[0]){
       let id = $(event.target).attr('data-id');
-      let name = $(`.name${id}`);
-      let picture = $(`.picture${id}`);
-      let description = $(`.description${id}`);
+      let name = $(`.name${id}`).val();
+      let picture = $(`.picture${id}`).val();
+      let description = $(`.description${id}`).val();
+      console.log(id, name, picture, description);
     }
   })
 })
